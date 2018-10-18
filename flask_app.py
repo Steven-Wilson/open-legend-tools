@@ -141,7 +141,7 @@ def get_banes(bane_name):
 @app.route("/boons")
 def boon_index():
     return render_template(
-        "boon-index.html", boon_names=[b.name for b in banes.values()]
+        "boon-index.html", boon_names=[b.name for b in boons.values()]
     )
 
 
