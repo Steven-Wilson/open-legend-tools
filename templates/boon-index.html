@@ -1,26 +1,12 @@
-{% extends "layout.html" %}
+{% extends "ability-index.html" %}
 {% block title %}Boons{% endblock %}
 
-{% block content %}
+{% block all_items %}
 
-<div class="container-fluid">
-    <div class="row">
-        <nav class="navbar col-md-2 sidebar navbar-light bg-light d-md-block d-none">
-            <div class="sidebar-sticky">
-                <ul class="navbar-nav flex-column">
-                    {% for boon_name in boon_names %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('get_boons', boon_name=boon_name)}}">{{boon_name}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </nav>
-        <div class="col-md-10">
-            {% block boon_item %}
-            {% endblock %}
-        </div>
-    </div>
-</div>
+{% for boon_name in boon_names %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('get_boons', boon_name=boon_name)}}">{{boon_name}}</a>
+</li>
+{% endfor %}
 
 {% endblock %}
