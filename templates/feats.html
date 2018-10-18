@@ -1,0 +1,48 @@
+{% extends "feat-index.html" %}
+{% block title %}Feat - {{feat.name}}{% endblock %}
+
+{% block this_item %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{feat.name}} Feat</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <p>
+                <b>Cost</b><br/>
+                {% if feat.name == 'Boon Access' %}
+                Same as Power Level of Boon
+                {% else %}
+                {{feat.cost}}
+                {% endif %}
+            </p>
+        </div>
+        <div class="col-12 col-lg-9">
+            <p>
+                <b>Prerequisites</b><br/>
+                <ol>
+                    {% for prereq in feat.prerequisites %}
+                    <li>{{prereq}}</li>
+                    {% endfor %}
+                </ol>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <p><b>Description</b><br/>{{feat.description|safe}}</p>
+            <p><b>Effect</b><br/>{{feat.effect|safe}}</p>
+            {%if feat.special %}
+            <p><b>Special</b><br/>{{feat.special|safe}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

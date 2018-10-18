@@ -1,0 +1,56 @@
+{% extends "boon-index.html" %}
+{% block title %}Boon - {{boon.name}}{% endblock %}
+
+{% block boon_item %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>{{boon.name}} Boon</h1>
+            <p>
+                <small>
+                    {% for attribute in boon.attributes|sort %}
+                    <span class="badge badge-primary">{{attribute}}</span>
+                    {% endfor %}
+                    <br/>
+                    {% for level in boon.power_levels|sort %}
+                    <span class="badge badge-secondary">Power Level {{level}}</span>
+                    {% endfor %}
+                    <br/>
+                    {% for tag in boon.tags|sort %}
+                    <span class="badge badge-secondary">{{tag}}</span>
+                    {% endfor %}
+                </small><br/>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <p>
+                <b>Invocation Time</b><br/>
+                {{boon.invocation_time}}
+            </p>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <p>
+                <b>Duration</b><br/>
+                {{boon.duration}}
+            </p>
+        </div>
+        <div class="col-lg-6 col-sm-0">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <p><b>Description</b><br/>{{boon.description|safe}}</p>
+            <p><b>Effect</b><br/>{{boon.effect|safe}}</p>
+            {%if boon.special %}
+            <p><b>Special</b><br/>{{boon.special|safe}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

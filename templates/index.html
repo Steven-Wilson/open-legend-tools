@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <p>
+        <a href="{{url_for('bane_index')}}">Bane Index</a><br/>
+        <a href="{{url_for('boon_index')}}">Boon Index</a><br/>
+        <a href="{{url_for('feat_index')}}">Feat Index</a><br/>
+    </p>
+</div>
+
+{% endblock %}

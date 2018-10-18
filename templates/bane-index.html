@@ -1,0 +1,14 @@
+{% extends "ability-index.html" %}
+{% block title %}Banes{% endblock %}
+
+{% block all_items %}
+
+{% for bane_name in bane_names %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('get_banes', bane_name=bane_name)}}">{{bane_name}}</a><br/>
+</li>
+{% endfor %}
+
+{% endblock %}
+
+
